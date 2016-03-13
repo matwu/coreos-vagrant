@@ -31,7 +31,6 @@ $ docker build -t matwu/nginx:0.0.1 workspace/apps/nginx
 ### Run Docker Containers
 
 ```bash
-$ docker run -itd -p 80:80 matwu/api:0.0.1 /bin/bash
 $ docker run -d -p 80:80 -p 443:443 -v /home/core/workspace/mounts/log_nginx:/var/log/nginx -v /home/core/workspace/mounts/html:/var/www/html matwu/nginx:0.0.1 nginx
 ```
 
