@@ -21,11 +21,22 @@ $ vagrant ssh
 $ wget https://storage.googleapis.com/golang/go1.6.linux-amd64.tar.gz
 $ sudo mkdir /opt
 $ sudo tar zxf go1.6.linux-amd64.tar.gz -C /opt/
+$ ~/.bash_profile
+cp /usr/share/skel/.bash_profile ~/.bash_profile
 $ touch ~/.bash_profile && cat << EOF >> ~/.bash_profile
 export GOROOT=/opt/go
 export GOPATH=~/go
 export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
 EOF
+```
+
+### Set up for git
+
+```bash
+$ git clone https://github.com/coreos/go-gitreceive.git
+$ cd go-gitreceive
+$ go build
+$ sudo ./go-gitreceive init
 ```
 
 ### Run Docker containers
