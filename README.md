@@ -10,8 +10,6 @@ Use below commands to build CoreOS environment with Vagrant into your mac
 ```bash
 $ git clone https://github.com/coreos/coreos-vagrant/
 $ cd coreos-vagrant
-$ cp user-data.sample user-data
-$ cp config.rb.sample config.rb
 $ vagrant up
 $ vagrant ssh
 ```
@@ -27,18 +25,17 @@ $ git config --global user.name "matwu"
 
 ```bash
 $ git clone https://github.com/matwu/coreos-vagrant/ workspace
-$ cd workspace
-$ docker build -t matwu/api:0.0.1 nginx
+$ docker build -t matwu/nginx:0.0.1 workspace/apps/nginx
 ```
 
 ### Run Docker Containers
 
 ```bash
 $ docker run -itd -p 80:80 matwu/api:0.0.1 /bin/bash
+$ docker run -d -p 80:80 -p 443:443 -v /home/core/workspace/mounts/log_nginx:/var/log/nginx -v /home/core/workspace/mounts/html:/var/www/html matwu/nginx:0.0.1 nginx
 ```
 
-
-### Tips#
+### Tips
 
 ```bash
 # List of Docker Images Stored in Your OS
