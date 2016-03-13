@@ -35,7 +35,7 @@ $ docker run -d -p 80:80 -p 443:443 -v /home/core/workspace/mounts/log_nginx:/va
 ```
 
 ### Access to the Nginx from Browser
-[http://172.17.8.101/](http://172.17.8.101/)
+[http://172.17.8.101/](http://172.17.8.101/)  
 Also you can see the access log at mounted directory.
 
 ```bash
