@@ -1,5 +1,6 @@
 # coreos-vagrant
 ## Vagrant / CoreOS / Docker / rkt
+## nginx
 
 ---
 
@@ -15,14 +16,14 @@ $ vagrant up
 $ vagrant ssh
 ```
 
-### Install golang
+### Install golang if you need
 
 ```bash
 $ wget https://storage.googleapis.com/golang/go1.6.linux-amd64.tar.gz
 $ sudo mkdir /opt
 $ sudo tar zxf go1.6.linux-amd64.tar.gz -C /opt/
 $ ~/.bash_profile
-cp /usr/share/skel/.bash_profile ~/.bash_profile
+$ cp /usr/share/skel/.bash_profile ~/.bash_profile
 $ touch ~/.bash_profile && cat << EOF >> ~/.bash_profile
 export GOROOT=/opt/go
 export GOPATH=~/go
@@ -30,19 +31,18 @@ export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
 EOF
 ```
 
-### Set up for git
+### Git Config
 
 ```bash
-$ git clone https://github.com/coreos/go-gitreceive.git
-$ cd go-gitreceive
-$ go build
-$ sudo ./go-gitreceive init
+$ git config --global user.email "matwumatwu@gmail.com"
+$ git config --global user.name "matwu"
 ```
 
 ### Run Docker containers
 
 ```bash
-$ git clone https://github.com/matwu/coreos-vagrant/
-$ docker build -t matwu/api:0.0.1 api
+$ git clone https://github.com/matwu/coreos-vagrant/ workspace
+$ cd workspace
+$ docker build -t matwu/api:0.0.1 nginx
 $ docker run -itd -p 80:80 matwu/api:0.0.1 /bin/bash
 ```
