@@ -16,21 +16,6 @@ $ vagrant up
 $ vagrant ssh
 ```
 
-### Install golang if you need
-
-```bash
-$ wget https://storage.googleapis.com/golang/go1.6.linux-amd64.tar.gz
-$ sudo mkdir /opt
-$ sudo tar zxf go1.6.linux-amd64.tar.gz -C /opt/
-$ ~/.bash_profile
-$ cp /usr/share/skel/.bash_profile ~/.bash_profile
-$ touch ~/.bash_profile && cat << EOF >> ~/.bash_profile
-export GOROOT=/opt/go
-export GOPATH=~/go
-export PATH=$GOROOT/bin:$GOPATH/bin:$PATH
-EOF
-```
-
 ### Git Config
 
 ```bash
@@ -38,11 +23,33 @@ $ git config --global user.email "matwumatwu@gmail.com"
 $ git config --global user.name "matwu"
 ```
 
-### Run Docker containers
+### Build Docker Containers
 
 ```bash
 $ git clone https://github.com/matwu/coreos-vagrant/ workspace
 $ cd workspace
 $ docker build -t matwu/api:0.0.1 nginx
+```
+
+### Run Docker Containers
+
+```bash
 $ docker run -itd -p 80:80 matwu/api:0.0.1 /bin/bash
+```
+
+
+### Tips#
+
+```bash
+# List of Docker Images Stored in Your OS
+$ docker images
+
+# List of Docker Containers and Its Status
+$ docker ps -a
+
+# Remove Docker Image
+$ docker rmi [image id]
+
+# Remove Docker Container
+$ docker rm [container id]
 ```
