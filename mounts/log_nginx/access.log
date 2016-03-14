@@ -18,3 +18,5 @@
 172.18.0.1 - - [14/Mar/2016:02:22:50 +0000] "GET / HTTP/1.1" 200 10 "-" "curl/7.47.1"
 172.18.0.1 - - [14/Mar/2016:02:55:31 +0000] "GET / HTTP/1.1" 200 10 "-" "curl/7.47.1"
 172.18.0.1 - - [14/Mar/2016:02:56:17 +0000] "GET / HTTP/1.1" 200 10 "-" "curl/7.47.1"
+172.17.8.1 - - [14/Mar/2016:03:24:56 +0000] "GET / HTTP/1.1" 304 0 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.116 Safari/537.36"
+172.17.8.1 - - [14/Mar/2016:03:57:15 +0000] "GET / HTTP/1.1" 304 0 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.116 Safari/537.36"
