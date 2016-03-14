@@ -2,7 +2,7 @@ FROM rails:4.2
 
 MAINTAINER matwu matwumatwu@gmail.com
 
-# see update.sh for why all "apt-get install"s have to stay as one long line
+# install vim to edit rails modules
 RUN apt-get update && apt-get install -y vim && rm -rf /var/lib/apt/lists/*
 
 # create working directory
@@ -17,6 +17,12 @@ RUN git config --global user.email matwumatwu@gmail.com
 # clone rails app from github
 RUN git clone https://github.com/matwu/rails-api.git $APP_HOME
 RUN bundle update
+RUN export SECRET_KEY_BASE=`bundle exec rake secret`
+RUN bundle exec rake db:create RAILS_ENV=production
+RUN bundle exec rake db:migrate RAILS_ENV=production
 
-# Expose ports.
-EXPOSE 3000
+# expose ports.
+EXPOSE 8080
+
+# start server
+CMD ["bundle", "exec", "foreman", "start"]

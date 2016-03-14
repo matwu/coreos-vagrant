@@ -1,6 +1,4 @@
-# coreos-vagrant
-## Vagrant / CoreOS / Docker / rkt
-## nginx
+# Vagrant / CoreOS / Docker / Ruby on Rails / MySql / Nginx
 
 ---
 
@@ -19,26 +17,38 @@ $ vagrant ssh
 ```bash
 $ git config --global user.email "matwumatwu@gmail.com"
 $ git config --global user.name "matwu"
-```
-
-### Build Docker Containers
-
-```bash
 $ git clone https://github.com/matwu/coreos-vagrant/ workspace
-$ docker build -t matwu/nginx:0.0.1 /home/core/workspace/apps/nginx
-$ docker build -t matwu/rails:0.0.1 /home/core/workspace/apps/rails
-$ docker build -t matwu/mysql:0.0.1 /home/core/workspace/apps/mysql
 ```
 
-### Run Docker Containers
+### Rails
+Build rails image and run it
 
 ```bash
-$ docker run -d -p 80:80 -p 443:443 -v /home/core/workspace/mounts/log_nginx:/var/log/nginx matwu/nginx:0.0.1 --name matwu_nginx
-$ docker run -d matwu/mysql:0.0.1 --name matwu_mysql
-$ docler run -d matwu/rails:0.0.1 --name matwu_rails
+$ docker build -t matwu/rails:0.0.1 /home/core/workspace/apps/rails
+
+# start rails container and start rails processes by foreman automatically.
+$ docker run -d --link matwu_mysql:db --name matwu_rails matwu/rails:0.0.1
+# start rails container and dive into it. the processes have to be started manually.
+$ docker run -it --link matwu_mysql:db --name matwu_rails matwu/rails:0.0.1 /bin/bash
 ```
 
-### Access to the Nginx from Browser
+### Mysql
+Build mysql image and run it
+
+```bash
+$ docker build -t matwu/mysql:0.0.1 /home/core/workspace/apps/mysql
+$ docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=saruhashi --name matwu_mysql matwu/mysql:0.0.1
+```
+
+### Nginx
+Build nginx image and build it
+
+```bash
+$ docker build -t matwu/nginx:0.0.1 /home/core/workspace/apps/nginx
+$ docker run -d -p 80:80 -p 443:443 -v /home/core/workspace/mounts/log_nginx:/var/log/nginx --name matwu_nginx matwu/nginx:0.0.1
+```
+
+### Access to Rails App via Nginx from Browser
 You can then go to [http://172.17.8.101/](http://172.17.8.101/) in a browser.  
 Also you can see the access log at mounted directory.
 
