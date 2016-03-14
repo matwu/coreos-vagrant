@@ -26,6 +26,7 @@ $ git config --global user.name "matwu"
 ```bash
 $ git clone https://github.com/matwu/coreos-vagrant/ workspace
 $ docker build -t matwu/nginx:0.0.1 workspace/apps/nginx
+$ docker build -t matwu/rails:0.0.1 workspace/apps/rails
 ```
 
 ### Run Docker Containers
@@ -35,7 +36,7 @@ $ docker run -d -p 80:80 -p 443:443 -v /home/core/workspace/mounts/log_nginx:/va
 ```
 
 ### Access to the Nginx from Browser
-[http://172.17.8.101/](http://172.17.8.101/)  
+You can then go to [http://172.17.8.101/](http://172.17.8.101/) in a browser.  
 Also you can see the access log at mounted directory.
 
 ```bash
