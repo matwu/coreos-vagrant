@@ -25,9 +25,9 @@ $ git config --global user.name "matwu"
 
 ```bash
 $ git clone https://github.com/matwu/coreos-vagrant/ workspace
-$ docker build -t matwu/nginx:0.0.1 workspace/apps/nginx
-$ docker build -t matwu/rails:0.0.1 workspace/apps/rails
-$ docker build -t matwu/mysql:0.0.1 workspace/apps/mysql
+$ docker build -t matwu/nginx:0.0.1 /home/core/workspace/apps/nginx
+$ docker build -t matwu/rails:0.0.1 /home/core/workspace/apps/rails
+$ docker build -t matwu/mysql:0.0.1 /home/core/workspace/apps/mysql
 ```
 
 ### Run Docker Containers
