@@ -17,12 +17,8 @@ RUN git config --global user.email matwumatwu@gmail.com
 # clone rails app from github
 RUN git clone https://github.com/matwu/rails-api.git $APP_HOME
 RUN bundle update
-RUN export SECRET_KEY_BASE=`bundle exec rake secret`
-RUN bundle exec rake db:create RAILS_ENV=production
-RUN bundle exec rake db:migrate RAILS_ENV=production
 
-# expose ports.
 EXPOSE 8080
 
 # start server
-CMD ["bundle", "exec", "foreman", "start"]
+CMD ["/bin/bash"]

@@ -20,6 +20,14 @@ $ git config --global user.name "matwu"
 $ git clone https://github.com/matwu/coreos-vagrant/ workspace
 ```
 
+### Mysql
+Build mysql image and run it
+
+```bash
+$ docker build -t matwu/mysql:0.0.1 /home/core/workspace/apps/mysql
+$ docker run -d -e MYSQL_ROOT_PASSWORD=saruhashi --name matwu_mysql matwu/mysql:0.0.1
+```
+
 ### Rails
 Build rails image and run it
 
@@ -32,20 +40,12 @@ $ docker run -d --link matwu_mysql:db --name matwu_rails matwu/rails:0.0.1
 $ docker run -it --link matwu_mysql:db --name matwu_rails matwu/rails:0.0.1 /bin/bash
 ```
 
-### Mysql
-Build mysql image and run it
-
-```bash
-$ docker build -t matwu/mysql:0.0.1 /home/core/workspace/apps/mysql
-$ docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=saruhashi --name matwu_mysql matwu/mysql:0.0.1
-```
-
 ### Nginx
 Build nginx image and build it
 
 ```bash
 $ docker build -t matwu/nginx:0.0.1 /home/core/workspace/apps/nginx
-$ docker run -d -p 80:80 -p 443:443 -v /home/core/workspace/mounts/log_nginx:/var/log/nginx --name matwu_nginx matwu/nginx:0.0.1
+$ docker run -d -p 80:80 -p 443:443 -v /home/core/workspace/mounts/log_nginx:/var/log/nginx --link matwu_rails:app --name matwu_nginx matwu/nginx:0.0.1
 ```
 
 ### Access to Rails App via Nginx from Browser
