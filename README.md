@@ -70,15 +70,19 @@ tail -f /home/core/workspace/mounts/log_nginx/access.log
 ### Tips
 
 ```bash
-# List of Docker Images Stored in Your OS
+# list of docker images stored in your OS
 $ docker images
 
-# List of Docker Containers and Its Status
+# list of docker containers and its status
 $ docker ps -a
+
+# stop all containers
+$ docker stop `docker ps -q`
+
+# remove docker container(s)
+$ docker rm [container id]
+$ docker rm `docker ps -aq`
 
 # Remove Docker Image
 $ docker rmi [image id]
-
-# Remove Docker Container
-$ docker rm [container id]
 ```
