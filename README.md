@@ -21,7 +21,7 @@ $ vagrant ssh
 ```bash
 $ git config --global user.email "matwumatwu@gmail.com"
 $ git config --global user.name "matwu"
-$ git clone https://github.com/matwu/coreos-vagrant/ workspace
+$ git clone https://github.com/matwu/rails-docker-coreos/ workspace
 ```
 
 ### Mysql
