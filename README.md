@@ -67,7 +67,7 @@ tail -f /home/core/workspace/mounts/log_nginx/access.log
 ```
 
 
-### Tips
+#### Docker Commands
 
 ```bash
 # list of docker images stored in your OS
