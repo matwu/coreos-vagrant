@@ -6,6 +6,12 @@ Vagrant / CoreOS / Docker / Ruby on Rails / MySql / Nginx
 
 ---
 
+### Structure
+
+![Structure](./documents/imgs/structure.png "Structure")
+
+---
+
 ### Development Environmemnt
 Use below commands to build CoreOS environment with Vagrant into your mac.
 
