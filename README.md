@@ -1,4 +1,8 @@
-# Vagrant / CoreOS / Docker / Ruby on Rails / MySql / Nginx
+# Rails Environment with Docker on CoreOS
+
+### Keywords
+
+Vagrant / CoreOS / Docker / Ruby on Rails / MySql / Nginx
 
 ---
 
